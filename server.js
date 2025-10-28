@@ -11,7 +11,7 @@ app.get('/test', (req, res) => {
   res.json({ 
     message: 'Serveur fonctionne !',
     timestamp: new Date().toISOString(),
-    websocket: 'wss://serveur.kotaciv.com'
+    websocket: 'wss://jeu2-multijoueur.onrender.com'
   });
 });
 
@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
   res.json({ 
     message: 'Serveur Jeu 2 Multijoueur',
     status: 'En ligne',
-    websocket: 'wss://serveur.kotaciv.com'
+    websocket: 'wss://jeu2-multijoueur.onrender.com'
   });
 });
 
