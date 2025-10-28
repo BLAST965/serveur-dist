@@ -1,0 +1,25 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/zixe8065/serveur.kotaciv.com"
+PassengerBaseURI "/"
+PassengerNodejs "/home/zixe8065/nodevenv/serveur.kotaciv.com/18/bin/node"
+PassengerAppType node
+PassengerStartupFile server.js
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
+
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION BEGIN
+<IfModule Litespeed>
+SetEnv NODE_ENV production
+SetEnv PORT 3002
+SetEnv HOST 0.0.0.0
+SetEnv PATH "/home/zixe8065/nodevenv/serveur.kotaciv.com/18/bin:$PATH"
+</IfModule>
+# DO NOT REMOVE OR MODIFY. CLOUDLINUX ENV VARS CONFIGURATION END
+
+# Configuration WebSocket (si supporté)
+<IfModule Litespeed backend>
+RewriteEngine On
+RewriteCond %{HTTP:Upgrade} websocket [NC]
+RewriteCond %{HTTP:Connection} upgrade [NC]
+RewriteRule ^/?(.*) "wss://serveur.kotaciv.com/$1" [P,L]
+</IfModule>
+
